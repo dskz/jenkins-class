@@ -10,8 +10,7 @@ node {
 		description: 'Which Environment should we deploy?', 
 		name: 'ENVIR')])])
 	stage("Clone a Repo"){
-        checkout([$class: 'GitSCM', branches: [[name: 'october2021']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/dskz/jenkins-class.git']]])
-    }
+        checkout([$class: 'GitSCM', branches: [[name: 'october2021']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/dskz/jenkins-class.git']]])    }
 	stage("Build RDS"){
 		ws("${workspace}/AWS/RDS"){
             sh "ENVIRONMENT=${ENVIR}   make tf-fmt  tf-init  tf-plan  tf-${TF_ACTION}"

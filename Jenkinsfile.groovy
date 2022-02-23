@@ -14,8 +14,7 @@ properties(
 
 node {
     stage("Pull"){
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/infrastructure.git']]])
-    }
+        checkout([$class: 'GitSCM', branches: [[name: 'october2021']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/dskz/jenkins-class.git']]])    }
     stage("Initialize"){
         ws("workspace/infrastructura/vpc"){
             sh "export ENVIRONMENT=${ENVIRONMENT}"
